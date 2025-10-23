@@ -1,0 +1,228 @@
+@font-face {
+    font-family: Handwriting;
+    src: url("fonts/Handwriting2.otf") format("opentype");
+}
+:root {
+    --main-bg-color: #e7dfd4;
+    --main-text-color: #111;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-text-color: #f2eee8;
+        --main-bg-color: #2c261f;
+    }
+    .svgInvertBefore::before {
+        filter: invert();
+    }
+    .svgInvert {
+        filter: invert();
+    }
+}
+body {
+    width:100vw;
+    margin:0;
+    display:inline-block;
+    font-family: Handwriting;
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    font-size: 26pt;
+    line-height: 36pt;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+#mainTitle {
+  position: absolute;
+  left: 50%;
+  top: 45vh;
+  transform: translate(-50%, -30%);
+  font-size: 140pt;
+  line-height: 110pt;
+  white-space: nowrap;
+
+  transition:
+    left      0.15s ease-out,
+    top       0.15s ease-out,
+    transform 0.15s ease-out,
+    font-size 0.3s ease-out;
+}
+#mainTitle[scrolled="yes"] {
+  position: fixed;
+  left: 20pt;
+  top: 20pt;
+  transform: translate(0, -30%);
+  font-size: 30pt;
+  transition:
+    left      0.3s ease-out,
+    top       0.3s ease-out,
+    transform 0.3s ease-out,
+    font-size 0.15s ease-out;
+}
+#container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:65vh;
+    width: 55%;
+    margin-bottom: 10vh;
+    position: relative;
+}
+.paper {
+    position: relative;
+    width: calc(60%);
+    padding: 15% 18% 5% 25%;
+    aspect-ratio: 781 / 1030;
+
+    /* text styles */
+    color: var(--main-text-color);
+    z-index: 1;            /* make sure the text is on top */
+}
+
+.paper::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+
+    /* background SVG */
+    background-image: url("images/paper_drawing.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
+    transition: filter 0.4s ease;
+    /* only hue-shift the pseudo-element */
+    z-index: -1; /* place it behind the content */
+}
+.large {
+    font-size: 50pt;
+    line-height: 80pt;
+}
+.spacer {
+    height: 1em;
+}
+p {
+    margin: 0;
+}
+a {
+    color: #66c2ff;/*#c6e8ff*/
+    text-decoration: wavy underline;
+    text-decoration-thickness: 2px; /* Adjust the thickness as desired */
+    text-underline-offset: 3px;     /* Optional: adjusts the gap between text and underline */
+}
+
+
+
+.sticky-row {
+  display: grid;
+  flex-wrap: wrap;   /* allows sticky notes to wrap onto new lines if screen is too narrow */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;         /* space between sticky notes */
+}
+
+.stickyDiv {
+  position: relative;
+  /* width: calc(30% - 20px);      adjust as needed */
+  aspect-ratio: 86.302 / 72.24;
+  padding: 20px;
+  text-align: center;
+  color: var(--main-bg-color);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stickyDiv::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("images/sticky_note.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  z-index: -1;
+}
+
+.nodecorate {
+  text-decoration: none;
+}
+
+.stickyDiv img {
+  height: 50%;
+  /* or use max-width: 100%; if you prefer */
+}
+.redSticky::before {
+    filter: hue-rotate(0deg);
+}
+.orangeSticky::before {
+    filter: hue-rotate(40deg);
+}
+.greenSticky::before {
+    filter: hue-rotate(90deg);
+}
+.blueSticky::before {
+    filter: hue-rotate(240deg);
+}
+.purpleSticky::before {
+    filter: hue-rotate(280deg);
+}
+
+
+
+.hidden {
+    display: none !important;
+}
+
+.graphic-image1, .graphic-image2, .graphic-image3, .graphic-image4 {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+.graphic-image1 {
+    -webkit-mask-image: url('images/image-clip1.svg');
+    mask-image: url('images/image-clip1.svg');
+}
+.graphic-image2 {
+    -webkit-mask-image: url('images/image-clip2.svg');
+    mask-image: url('images/image-clip2.svg');
+}
+.graphic-image3 {
+    -webkit-mask-image: url('images/image-clip3.svg');
+    mask-image: url('images/image-clip3.svg');
+}
+.graphic-image4 {
+    -webkit-mask-image: url('images/image-clip4.svg');
+    mask-image: url('images/image-clip4.svg');
+}
+
+/* .fade-in {
+  opacity: 0;
+  animation: fadeInAnim 2s ease 0.3s forwards;
+} */
+
+@keyframes fadeInAnim {
+  to { opacity: 1; }
+}
+
+.contact-link {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 14px;
+    text-decoration: none;
+    background-image: url('images/button.svg');
+    background-size: 100% 100%; /* Stretch to fit both dimensions */
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+    font: inherit;
+    margin-top:20px;
+    box-sizing: border-box;
+}

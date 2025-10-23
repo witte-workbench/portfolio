@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Witte's Workbench</title>
+        <link rel="stylesheet" href="home_style.css">
+        <link rel="icon" type="image/x-icon" href="images/pencil.svg">
+    </head>
+    <body class="fade-in">
+        <div id="mainTitle" scrolled="no">Witte's Workbench</div>
+        <div id="container">
+            <div class="paper svgInvertBefore">
+                <div class="large">Hello there!</div>
+                <div id="antimated-text">
+                    <p class="hidden">I'm Noah Witte, and this is my portfolio.</p>
+                    <div class="spacer"></div>
+                    <p class="hidden">Click around and you can see some of my projects - mostly focused around coding with artistic touches. If you like what you see, reach out!</p>
+                    <div class="spacer"></div>
+                    <p class="hidden">Note: This is a work in progress!</p>
+                </div>
+            </div>
+            <div class="sticky-row">
+                <a href="projects/desmos.html" class="stickyDiv nodecorate">
+                    <div>Desmos Art</div>
+                    <img src="images/bike.gif" class="graphic-image1">
+                </a>
+                <a href="projects/mms.html" class="stickyDiv nodecorate">
+                    <div>Make My Schedule</div>
+                    <img src="images/mms-icon.png" class="graphic-image1">
+                </a>
+                <a href="projects/nera.html" class="stickyDiv nodecorate">
+                    <div>Nera</div>
+                    <img src="images/nera-icon.png" class="graphic-image1">
+                </a>
+                <a href="projects/classclock.html" class="stickyDiv nodecorate">
+                    <div>Class Clock</div>
+                    <img src="images/clock-icon.png" class="graphic-image1">
+                </a>
+            </div>
+            <a href="contact.html" class="contact-link">Get in touch!</a>
+        </div>
+        <script>
+            var target_idx = 0;
+            var target = document.querySelectorAll("#antimated-text p")[target_idx];
+            var content = target.innerText;
+            target.innerText = "";
+            target.classList.remove("hidden");
+            var i=0;
+            function addLetter() {
+                if (i<content.length) {
+                    target.innerHTML += content[i];
+                    let delay = 20;
+                    if (content[i]==" ")
+                        delay += 30;
+                    if (content[i-1]==".")
+                        delay += 200;
+                    if (Math.floor(Math.random()*100)==50)
+                        delay += 200;
+                    if (target_idx > 1) delay/=3;
+                    delay += Math.pow(Math.random()*10, 2);
+                    i++;
+                    setTimeout(addLetter, delay);
+                } else {
+                    target_idx++;
+                    target = document.querySelectorAll("#antimated-text p")[target_idx];
+                    i = 0;
+                    if (target) {
+                        content = target.innerText;
+                        target.classList.remove("hidden");
+                        target.innerText = "";
+                        setTimeout(addLetter, 300);
+                    }
+                }
+            }
+            addLetter();
+
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > window.innerHeight * 0.15) {
+                    document.getElementById("mainTitle").setAttribute("scrolled","yes");
+                } else {
+                    document.getElementById("mainTitle").setAttribute("scrolled","no");
+                }
+            });
+        </script>
+        <script src="style.js"></script>
+    </body>
+</html>

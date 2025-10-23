@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Desmos Art - WW</title>
+        <link rel="stylesheet" href="../style.css">
+        <link rel="icon" type="image/x-icon" href="../images/pencil.svg">
+    </head>
+    <body>
+        <img src="../images/fullscreen.svg" id="fullscreen" class="svgInvert" draggable="false">
+        <div id="fontSwitch">
+            <span class="handwritten">T</span>
+            <div id="slider_container">
+                <img src="../images/slider_container.svg" class="svgInvert" draggable="false">
+                <img src="../images/slider_dot.svg" id="slider_dot" class="svgInvert" draggable="false">
+            </div>
+            <span class="typewritten">T</span>
+        </div>
+        <div id="nav">
+            <a href="../index.html">
+                <img src="../images/pencil.svg" id="logo">
+                Witte's Workbench
+            </a>
+        </div>
+        <div class="mainTitle">Class Clock</div>
+        <div id="container">
+            <img src="../images/new-cc.png" class="graphic-image1 fill-width rect">
+            This is one of my earlier projects. In middle school, I realized that lots of students would ask "How long until class gets out?" or "What period is next?"
+            <div class="spacer"></div>
+            <div class="large">Inspiration</div>
+            In my programming class, another student had also noticed that. They designed a website that told you all that info - The current time, next class, and time left in the current one.
+            <div class="spacer"></div>
+            There was just one problem - it wasn't very pretty. It was exactly what a programmer would make: Small, in the corner, and black and white.
+            <div class="spacer"></div>
+            <div class="large">Right to work</div>
+            I took it upon myself to make a better version. Yes, mine did look much better, and it worked!
+            <img src="../images/og-cc.png" class="graphic-image4 fill-width rect">
+            <div class="spacer"></div>
+            <div class="image-wrapper right-float"><img src="../images/if-cc.png" class="graphic-image1"></div>
+            But it was a little over my head. You see, I hadn't learned about loops or arrays yet. So I spend my entire weekend manually typing hundreds of if-statements.
+            <div class="spacer"></div>
+            With that being said, it was a start. The best way to learn is to get in over your head. And over time, I improved it, using dictionaries, functions, and CSS.
+            <img src="../images/med-cc.png" class="graphic-image3 fill-width rect">
+            <div class="spacer"></div>
+            I later added features like music, styles, other schools, and wallpapers. You can see the latest version, which I made in high school, at <a href="https://class-clock.github.io/">class-clock.github.io</a>
+            <div class="outro">That's all.</div>
+            <a href="../contact.html" class="contact-link">Get in touch!</a>
+        </div>
+        <template id="image-fullscreen-template">
+            <div id="image-fullscreen">
+                <img>
+                <p>X</p>
+            </div>
+        </template>
+        <script>
+            document.getElementById("fontSwitch").addEventListener("click",()=>{
+                if (document.getElementById("slider_dot").getAttribute("flipped") == "yes") {
+                    document.body.classList.remove("typewritten");
+                    document.getElementById("slider_dot").setAttribute("flipped","no");
+                    localStorage.setItem("font", "handwritten");
+                } else {
+                    document.body.classList.add("typewritten");
+                    document.getElementById("slider_dot").setAttribute("flipped","yes");
+                    localStorage.setItem("font", "typewritten");
+                }
+            });
+            document.getElementById("fullscreen").addEventListener("click",()=>{
+                if (document.fullscreenElement) {
+                    document.getElementById("fullscreen").src = "../images/fullscreen.svg";
+                    document.exitFullscreen();
+                } else {
+                    document.getElementById("fullscreen").src = "../images/exit_fullscreen.svg";
+                    document.documentElement.requestFullscreen();
+                }
+            })
+
+            function init() {
+                let typewritten = localStorage.getItem("font") == "typewritten";
+                if (typewritten) {
+                    document.body.classList.add("typewritten");
+                    document.getElementById("slider_dot").setAttribute("flipped","yes");
+                }
+            }
+            init();
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > window.innerHeight * 0.15) {
+                    document.getElementById("fontSwitch").style.display = "none";
+                    document.getElementById("fullscreen").style.display = "none";
+                } else {
+                    document.getElementById("fontSwitch").style.display = "flex";
+                    document.getElementById("fullscreen").style.display = "block";
+                }
+            });
+
+            document.getElementById("container").querySelectorAll("img").forEach(el => {
+                el.addEventListener("click",e => {
+                    const template = document.getElementById("image-fullscreen-template");
+                    const clone = template.content.cloneNode(true);
+                    clone.querySelector("img").src = el.src;
+                    clone.querySelector("p").addEventListener("click", ()=>{
+                        const fullscreen = document.getElementById("image-fullscreen");
+                        document.body.removeChild(fullscreen);
+                    });
+
+                    document.body.appendChild(clone);
+                })
+            })
+            window.addEventListener('keyup', (e) => {
+                if (e.key=="Escape") {
+                    const fullscreen = document.getElementById("image-fullscreen");
+                    if (fullscreen)
+                        document.body.removeChild(fullscreen);
+                }
+            });
+        </script>
+    </body>
+</html>

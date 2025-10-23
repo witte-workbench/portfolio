@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Contact - WW</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="images/pencil.svg">
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    </head>
+    <body>
+        <div id="nav">
+            <a href="index.html">
+                <img src="images/pencil.svg" id="logo">
+                Witte's Workbench
+            </a>
+        </div>
+        <div class="mainTitle">Contact!</div>
+        <div id="container">
+            <a href="https://www.linkedin.com/in/nw-codes/" class="contact-link">Linkedin</a>
+            <button class="contact-link" id="mm"></button>
+            <button class="contact-link" id="confetti">Confetti</button>
+        </div>
+        <script>
+            let mm = document.getElementById("mm");
+            mm.addEventListener("click",()=>{
+                let q = "odmqzv:oqdl|o{hxkw/xo{eAipenr5cpoBftj"+"=Ig|)76Uobj$)76P%32ve|+90zqxv*87wfdvmyk,21cqh345";
+                let b = n(q);
+                window.open(b, '_blank').focus();
+            });
+            mm.textContent = n("Gpenr");
+            function n(q) {
+                let b = "";
+                for (let j=0; j<q.length; j++) {
+                    b+=String.fromCharCode(q[j].charCodeAt(0)-((j+2)%8));
+                }
+                return b;
+            }
+            function v(q) {
+                let b = "";
+                for (let j=0; j<q.length; j++) {
+                    b+=String.fromCharCode(q[j].charCodeAt(0)+((j+2)%8));
+                }
+                return b;
+            }
+            document.getElementById("confetti").addEventListener("click",()=>{
+                confetti({
+                    particleCount: 200,
+                    startVelocity: 70,
+                    spread: 140,
+                    origin: {
+                        x: 0.3,
+                        y: 1
+                    }
+                });
+                confetti({
+                    particleCount: 100,
+                    startVelocity: 70,
+                    spread: 140,
+                    origin: {
+                        x: 0.5,
+                        y: 1
+                    }
+                });
+                confetti({
+                    particleCount: 400,
+                    startVelocity: 120,
+                    spread: 140,
+                    origin: {
+                        x: 0.5,
+                        y: 1
+                    }
+                });
+                confetti({
+                    particleCount: 200,
+                    startVelocity: 70,
+                    spread: 140,
+                    origin: {
+                        x: 0.7,
+                        y: 1
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

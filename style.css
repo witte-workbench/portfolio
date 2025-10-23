@@ -1,0 +1,296 @@
+@font-face {
+    font-family: Handwriting;
+    src: url("fonts/Handwriting2.otf") format("opentype");
+}
+:root {
+    --main-bg-color: #e7dfd4;
+    --main-text-color: #111;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-text-color: #f2eee8;
+        --main-bg-color: #2c261f;
+    }
+    .svgInvert {
+        filter: invert();
+    }
+}
+body {
+    width:100vw;
+    margin:0;
+    display:inline-block;
+    font-family: Handwriting;
+    color: var(--main-text-color);
+    background-color: var(--main-bg-color);
+    font-size: 26pt;
+    line-height: 34pt;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+.mainTitle {
+    /* transform: translateY(0.25em); */
+    height: 46vh;
+    width: 100%;
+    padding:42pt 0 84pt 0;
+    font-size: 120pt;
+    display: flex;
+    line-height: 110pt;
+    justify-content:center;
+    align-items: end;
+    font-weight: bold;
+    text-align: center;
+}
+#container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100vw;        /* Will take up full viewport width by default */
+    max-width: 670px;
+    box-sizing: border-box;
+    padding: 0 35px;
+    margin-bottom: 10vh;
+    position: relative;
+}
+#paper {
+    width: 100%;
+    /* filter: invert(); */
+}
+.onpage {
+    position: absolute;
+    top: 16%;
+    left: 18%;
+    width: 76%;
+    height: 70%;
+    overflow: hidden;
+}
+.large {
+    font-size: 50pt;
+    padding-bottom: 26px;
+    margin-top: 72pt;
+    line-height: 44pt;
+}
+.graphic-image1, .graphic-image2, .graphic-image3, .graphic-image4 {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    width: 16vw;
+}
+.graphic-image1 {
+    -webkit-mask-image: url('images/image-clip1.svg');
+    mask-image: url('images/image-clip1.svg');
+}
+.graphic-image2 {
+    -webkit-mask-image: url('images/image-clip2.svg');
+    mask-image: url('images/image-clip2.svg');
+}
+.graphic-image3 {
+    -webkit-mask-image: url('images/image-clip3.svg');
+    mask-image: url('images/image-clip3.svg');
+}
+.graphic-image4 {
+    -webkit-mask-image: url('images/image-clip4.svg');
+    mask-image: url('images/image-clip4.svg');
+}
+.fill-width {
+    width: 100%;
+}
+#nav {
+    position:fixed;
+    height:40pt;
+    font-size: 20pt;
+    line-height: 50pt;
+    padding-left: 12pt;
+    z-index: 2;
+    background-color: inherit;
+    width: 100%;
+}
+#nav a {
+    color: inherit;
+    text-decoration: none;
+}
+#logo {
+    height: 24pt;
+    object-fit: contain;
+    transform: translate(0,5pt);
+}
+.spacer {
+    height: 1em;
+}
+a {
+    color: #66c2ff;
+    text-decoration: wavy underline;
+    text-decoration-thickness: 2px; /* Adjust the thickness as desired */
+    text-underline-offset: 3px;     /* Optional: adjusts the gap between text and underline */
+}
+
+
+
+#image-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #00000088;
+    user-select: none;
+}
+#image-fullscreen img {
+    width: 80vw;
+    height: 80vh;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    object-fit: contain;
+}
+#image-fullscreen p {
+    position: fixed;
+    top: 14px;
+    right: 12px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px 8px 0px 8px;
+    margin: 0;
+}
+
+
+
+
+
+@media (min-width: 1140px) {
+  .image-wrapper {
+    width: 240px;
+  }
+    .hero {
+        width: 160%;
+        margin-left: -30%;     /* Space between image and text */
+    }
+  .image-wrapper.right-float {
+    float: right;
+    margin-right: -270px;  /* Push image into right margin */
+    margin-left: 24px;     /* Space between image and text */
+    clear: right;
+  }
+  .image-wrapper.left-float {
+    float: left;
+    margin-left: -270px;   /* Push image into left margin */
+    margin-right: 24px;    /* Space between image and text */
+    clear: left;
+  }
+}
+
+/* Mobile: Inline, Centered Images */
+@media (max-width: 1139px) {
+  .image-wrapper,
+  .image-wrapper.right-float,
+  .image-wrapper.left-float {
+    float: none !important;
+    clear: both;
+    display: block;
+    width: 70%;
+    margin: 0 15%;
+  }
+    .hero {
+        width: 100%;
+        padding: 0;
+    }
+}
+.image-wrapper img {
+    width: 100%;
+    display: block;
+}
+#container img {
+    cursor: pointer;
+}
+
+.outro {
+    margin-top: 140px;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 20pt;
+}
+.contact-link {
+    display: block;
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 14px;
+    text-decoration: none;
+    background-image: url('images/button.svg');
+    background-size: 100% 100%; /* Stretch to fit both dimensions */
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+    font: inherit;
+    margin-top:20px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.rect {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+#fullscreen {
+    z-index: 2;
+    height: 20pt;
+    position: fixed;
+    bottom: 5pt;
+    left: 5pt;
+    cursor: pointer;
+}
+
+ #fontSwitch {
+    z-index: 2;
+    position: fixed;
+    bottom: 5pt;
+    right: 5pt;
+    cursor: pointer;
+
+    display: inline-flex;       /* flex container */
+    align-items: center;        /* vertical centering */
+    gap: 0.2em;                 /* tweak spacing here if needed */
+
+    font-size: 20pt;            /* base size */
+    line-height: 1;             /* makes 1em = font-size */
+    height: auto;               /* let content drive height */
+}
+
+#fontSwitch img {
+  height: 1em;
+  width: auto;
+  display: block;             /* avoids inline-spacing quirks */
+}
+.handwritten {
+    font-family: Handwriting;
+    transform: translateY(20%);
+}
+.typewritten {
+    font-family: 'Times New Roman', Times, serif;
+}
+.handwritten,
+.typewritten {
+    font-size: 20pt;
+    line-height: 1;
+    display: block;             /* so they behave exactly like the images */
+}
+#slider_container {
+    position: relative;     /* establish a positioning context */
+}
+
+#slider_dot {
+    position: absolute;     /* now lives “on top” of the container */
+    top: 50%;               /* vertically center within the track */
+    left: 0;                /* start at the left edge */
+    transition: left 0.3s ease;
+    transform: translateY(-50%); /* offset so its center sits on the edge */
+}
+#slider_dot[flipped="yes"] {
+    left: 50%;                /* start at the left edge */
+}
