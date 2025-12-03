@@ -4,12 +4,13 @@
 }
 :root {
     --main-bg-color: #e7dfd4;
+    --main-mid-color: #463c2d;
     --main-text-color: #111;
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --main-text-color: #f2eee8;
         --main-bg-color: #2c261f;
+        --main-text-color: #f2eee8;
     }
     .svgInvert {
         filter: invert();
@@ -101,10 +102,13 @@ body::-webkit-scrollbar {
     height:40pt;
     font-size: 20pt;
     line-height: 50pt;
-    padding-left: 12pt;
+    padding: 0 24pt 6pt 12pt;
     z-index: 2;
-    background-color: inherit;
-    width: 100%;
+    color: #f2eee8;
+    background-image: url('images/nav.svg');
+    background-size: 100% 100%; /* Stretch to fit both dimensions */
+    background-repeat: no-repeat;
+    background-position: center;
 }
 #nav a {
     color: inherit;
@@ -212,7 +216,7 @@ a {
     opacity: 0.5;
     font-size: 20pt;
 }
-.contact-link {
+.contact-link, .contact-link2, .contact-link3 {
     display: block;
     text-align: center;
     width: 100%;
@@ -231,6 +235,12 @@ a {
     margin-top:20px;
     box-sizing: border-box;
     cursor: pointer;
+}
+.contact-link2 {
+    background-image: url('images/button2.svg');
+}
+.contact-link3 {
+    background-image: url('images/button3.svg');
 }
 .rect {
     aspect-ratio: 16/9;
@@ -267,17 +277,30 @@ a {
   width: auto;
   display: block;             /* avoids inline-spacing quirks */
 }
-.handwritten {
+.handwritten, .handwritten-btn {
     font-family: Handwriting;
     transform: translateY(20%);
-}
-.typewritten {
-    font-family: 'Times New Roman', Times, serif;
-}
-.handwritten,
-.typewritten {
     font-size: 20pt;
     line-height: 1;
+}
+.handwritten-btn {
+    transform: translateY(10%);
+}
+.typewritten {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    line-height: 30px;
+    font-size: 16pt;
+}
+.typewritten-btn, .typewritten .mainTitle, .typewritten .large {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 600;
+}
+.typewritten-btn {
+    font-weight: 400;
+    font-size: 18pt;
+}
+.handwritten, .typewritten {
     display: block;             /* so they behave exactly like the images */
 }
 #slider_container {
