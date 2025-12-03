@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <img src="../images/fullscreen.svg" id="fullscreen" class="svgInvert" draggable="false">
@@ -27,7 +28,7 @@
         </div>
         <div class="mainTitle">Make My Schedule</div>
         <div id="container">
-            <img src="../images/mms-screenshot2.png" loading="lazy" class="graphic-image1 fill-width rect">
+            <img src="../images/mms-screenshot2.png" class="graphic-image1 fill-width rect">
             Every student knows the most important part of school: Your schedule.
             <div class="spacer"></div>
             It determines when you wake up, what friends you make, and what professor covers your paper in red marks. Not to mention, many students have external factors like work hours.
@@ -39,12 +40,12 @@
             I started by learning how to make Chrome extensions. I then made a basic scraping script that pulls all the class course data from my school's registration page, then parses it into a data map. With this data, I ran code to generate every possible schedule including the user's desired classes.
             <div class="spacer"></div>
             <div class="large">And never stopped</div>
-            <div class="image-wrapper right-float"><img src="../images/old-mms.png" loading="lazy" class="graphic-image2"></div>
+            <div class="image-wrapper right-float"><img src="../images/old-mms.png" class="graphic-image2"></div>
             This first version was slow. Hillariously slow, in fact. It had lots of redundancy and duplicate removal, which in an exponential algorithm is very potent. Generating 30,000 schedules took 16 minutes. The sorting algorithm and filter options were bare bones.
             <div class="spacer"></div>
             I'm sharing this because it's important to remember Rome wasn't buit in a day - Every project starts with a poorly-made proof of concept.
             <div class="spacer"></div>
-            <div class="image-wrapper left-float"><img src="../images/mms-screenshot.png" loading="lazy" class="graphic-image3"></div>
+            <div class="image-wrapper left-float"><img src="../images/mms-screenshot.png" class="graphic-image3"></div>
             My latest version can generate the same 30,000 schedules in only 56 milliseconds (0.0009 minutes). That's a 17,000x improvement in this case. As another point of reference, my newest version can find 1,600,000 schedules in 2.6 seconds.
             <div class="spacer"></div>
             If you're interested, you can check it out at <a href="https://make-my-schedule.com/">make-my-schedule.com</a>

@@ -270,6 +270,7 @@ a {
     font-size: 20pt;            /* base size */
     line-height: 1;             /* makes 1em = font-size */
     height: auto;               /* let content drive height */
+    background-color: var(--main-bg-color);
 }
 
 #fontSwitch img {
@@ -316,4 +317,21 @@ a {
 }
 #slider_dot[flipped="yes"] {
     left: 50%;                /* start at the left edge */
+}
+
+
+
+
+@media (max-width: 600px) {
+    body {
+        font-size: 22pt;
+    }
+    .mainTitle {
+        font-size: 70pt;
+        line-height: 80pt;
+    }
+    .typewritten .mainTitle {
+        font-size: 50pt;
+        line-height: 60pt;
+    }
 }
