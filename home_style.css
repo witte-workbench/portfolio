@@ -33,31 +33,38 @@ body::-webkit-scrollbar {
     display: none;
 }
 #mainTitle {
-  position: absolute;
-  left: 50%;
-  top: 45vh;
-  transform: translate(-50%, -30%);
-  font-size: 140pt;
-  line-height: 110pt;
-  white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    top: 45vh;
+    transform: translate(-50%, -30%);
+    font-size: 140pt;
+    line-height: 110pt;
+    white-space: nowrap;
 
-  transition:
-    left      0.15s ease-out,
-    top       0.15s ease-out,
-    transform 0.15s ease-out,
-    font-size 0.3s ease-out;
+    transition:
+        left      0.15s ease-out,
+        top       0.15s ease-out,
+        transform 0.15s ease-out,
+        font-size 0.3s ease-out;
+    width: max-content;
+    max-width: 90vw;
+    text-wrap: wrap;
+    text-align: center;
+    z-index: 3;
 }
 #mainTitle[scrolled="yes"] {
-  position: fixed;
-  left: 20pt;
-  top: 20pt;
-  transform: translate(0, -30%);
-  font-size: 30pt;
-  transition:
-    left      0.3s ease-out,
-    top       0.3s ease-out,
-    transform 0.3s ease-out,
-    font-size 0.15s ease-out;
+    position: fixed;
+    left: 20pt;
+    top: 20pt;
+    transform: translate(0%, -30%);
+    font-size: 30pt;
+    line-height: 30pt;
+    transition:
+        left      0.3s ease-out,
+        top       0.3s ease-out,
+        transform 0.3s ease-out,
+        font-size 0.15s ease-out,
+        line-height 0.15s ease-out;
 }
 #container {
     display: block;
@@ -70,13 +77,19 @@ body::-webkit-scrollbar {
 }
 .paper {
     position: relative;
-    width: calc(60%);
-    padding: 15% 18% 5% 25%;
+    width: 600px;
+    max-width: 100%;
+    /* padding: 15% 18% 5% 25%; */
+    margin-left: auto;
+    margin-right: auto;
     aspect-ratio: 781 / 1030;
 
     /* text styles */
     color: var(--main-text-color);
     z-index: 1;            /* make sure the text is on top */
+}
+.paperContent {
+    padding: 17% 13% 6% 18%;
 }
 
 .paper::before {
@@ -225,4 +238,35 @@ a {
     font: inherit;
     margin-top:20px;
     box-sizing: border-box;
+}
+
+
+@media (max-width: 1100px) {
+    #container {
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #mainTitle {
+        font-size: 70pt;
+        line-height: 80pt;
+    }
+    body {
+        width: 90vw;
+        font-size: 18pt;
+        line-height: 26pt;
+    }
+    .large {
+        font-size: 34pt;
+        line-height: 40pt;
+    }
+    .sticky-row {
+        display: grid;
+        flex-wrap: wrap;   /* allows sticky notes to wrap onto new lines if screen is too narrow */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;         /* space between sticky notes */
+    }
 }
