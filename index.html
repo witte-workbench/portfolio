@@ -30,8 +30,6 @@
                         <p class="hidden">I'm Noah Witte, and this is my portfolio.</p>
                         <div class="spacer"></div>
                         <p class="hidden">Click around and you can see some of my projects - mostly focused around coding with artistic touches. If you like what you see, reach out!</p>
-                        <div class="spacer"></div>
-                        <p class="hidden">Note: This is a work in progress!</p>
                     </div>
                 </div>
             </div>
@@ -71,33 +69,52 @@
         </div>
         <script>
             var target_idx = 0;
-            var target = document.querySelectorAll("#antimated-text p")[target_idx];
-            var content = target.innerText;
-            target.innerText = "";
+            var paragraphs = document.querySelectorAll("#antimated-text p");
+            var target = paragraphs[target_idx];
+
+            function prepare(p) {
+                const text = p.innerText;
+                p.innerHTML = "";
+                const chars = [];
+                for (const ch of text) {
+                    const span = document.createElement("span");
+                    span.textContent = ch;
+                    span.className = "char";
+                    p.appendChild(span);
+                    chars.push(span);
+                }
+                return chars;
+            }
+
+            var chars = prepare(target);
             target.classList.remove("hidden");
-            var i=0;
+
+            var i = 0;
             function addLetter() {
-                if (i<content.length) {
-                    target.innerHTML += content[i];
+                if (i < chars.length) {
+                    chars[i].style.opacity = "1";
+
                     let delay = 20;
-                    if (content[i]==" ")
-                        delay += 30;
-                    if (content[i-1]==".")
-                        delay += 200;
-                    if (Math.floor(Math.random()*100)==50)
-                        delay += 200;
-                    if (target_idx > 1) delay/=3;
-                    delay += Math.pow(Math.random()*10, 2);
+                    const ch = chars[i].textContent;
+                    const prev = chars[i - 1]?.textContent;
+
+                    if (ch == " ") delay += 30;
+                    if (prev == ".") delay += 200;
+                    if (Math.floor(Math.random() * 100) == 50) delay += 200;
+                    if (target_idx > 1) delay /= 3;
+                    delay += Math.pow(Math.random() * 10, 2);
+
                     i++;
                     setTimeout(addLetter, delay);
+
                 } else {
                     target_idx++;
-                    target = document.querySelectorAll("#antimated-text p")[target_idx];
+                    target = paragraphs[target_idx];
                     i = 0;
+
                     if (target) {
-                        content = target.innerText;
+                        chars = prepare(target);
                         target.classList.remove("hidden");
-                        target.innerText = "";
                         setTimeout(addLetter, 300);
                     }
                 }

@@ -225,6 +225,10 @@ a {
 .hidden {
     display: none !important;
 }
+.char {
+    opacity: 0;
+    transition: opacity 0s; /* no animation unless you want one */
+}
 
 .graphic-image1, .graphic-image2, .graphic-image3, .graphic-image4 {
     -webkit-mask-repeat: no-repeat;
@@ -249,10 +253,10 @@ a {
     mask-image: url('images/image-clip4.svg');
 }
 
-/* .fade-in {
+.fade-in {
   opacity: 0;
   animation: fadeInAnim 2s ease 0.3s forwards;
-} */
+}
 
 @keyframes fadeInAnim {
   to { opacity: 1; }
