@@ -251,9 +251,15 @@ a {
     z-index: 2;
     height: 20pt;
     position: fixed;
-    bottom: 5pt;
-    left: 5pt;
+    bottom: 10pt;
+    left: 10pt;
     cursor: pointer;
+    transition: transform 0.5s ease-out;
+    padding: 5px;
+}
+
+#fullscreen[scrolled="yes"] {
+    transform: translateX(-200%);
 }
 
  #fontSwitch {
@@ -271,6 +277,12 @@ a {
     line-height: 1;             /* makes 1em = font-size */
     height: auto;               /* let content drive height */
     background-color: var(--main-bg-color);
+    transition: transform 0.5s ease-out;
+    padding: 5pt;
+}
+
+#fontSwitch[scrolled="yes"] {
+    transform: translateX(200%);
 }
 
 #fontSwitch img {
