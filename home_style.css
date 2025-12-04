@@ -48,6 +48,7 @@ body::-webkit-scrollbar {
     z-index: 3;
 
     transition:
+        color      0.25s ease-out,
         left       0.4s ease-out,
         top        0.4s ease-out,
         transform  0.4s ease-out,
@@ -60,11 +61,13 @@ body::-webkit-scrollbar {
     transform: translate(0, 0);
     font-size: 20pt;
     line-height: 1;
+    color: white;
 }
 /* SAFARI ONLY */
 @supports (font: -apple-system-body) {
     #mainTitle {
         transition:
+            color      0.25s ease-out,
             left      0.25s ease-out,
             top       0.25s ease-out,
             transform 0.25s ease-out;
