@@ -32,7 +32,7 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
- #mainTitle {
+#mainTitle {
     position: fixed;
     left: 50%;
     top: 45vh;
@@ -61,6 +61,31 @@ body::-webkit-scrollbar {
     font-size: 20pt;
     line-height: 1;
 }
+/* SAFARI ONLY */
+@supports (font: -apple-system-body) {
+    #mainTitle {
+        transition:
+            left      0.25s ease-out,
+            top       0.25s ease-out,
+            transform 0.25s ease-out;
+
+        transform-origin: top left;
+        transform: translate(-50%, -30%) scale(1);
+
+        line-height: 1 !important;
+    }
+
+    #mainTitle[scrolled="yes"] {
+        left: 45.4px;
+        top: 18.3px;
+
+        transform: translate(0, 0) scale(0.1428571429);
+
+        font-size: 140pt;
+        line-height: 1 !important;
+    }
+}
+
 
 #titleBackground {
     position:fixed;
