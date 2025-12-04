@@ -198,7 +198,7 @@ a {
 
 .stickyDiv span img {
   flex: 1 1 0;
-  width: 100%;
+  width: max-content;
   min-height: 0;
   max-height: 50%;
   object-fit: contain;    /* use 'cover' if you want it to crop instead */
