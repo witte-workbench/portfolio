@@ -83,6 +83,7 @@ body::-webkit-scrollbar {
 
         font-size: 140pt;
         line-height: 1 !important;
+        max-width: none;
     }
 }
 
