@@ -32,8 +32,8 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
-#mainTitle {
-    position: absolute;
+ #mainTitle {
+    position: fixed;
     left: 50%;
     top: 45vh;
     transform: translate(-50%, -30%);
@@ -41,31 +41,54 @@ body::-webkit-scrollbar {
     line-height: 110pt;
     white-space: nowrap;
 
-    transition:
-        left      0.15s ease-out,
-        top       0.15s ease-out,
-        transform 0.15s ease-out,
-        font-size 0.3s ease-out;
     width: max-content;
     max-width: 90vw;
     text-wrap: wrap;
     text-align: center;
     z-index: 3;
+
+    transition:
+        left       0.4s ease-out,
+        top        0.4s ease-out,
+        transform  0.4s ease-out,
+        font-size  0.4s ease-out,
+        line-height 0.4s ease-out;
 }
 #mainTitle[scrolled="yes"] {
-    position: fixed;
-    left: 20pt;
-    top: 20pt;
-    transform: translate(0%, -30%);
-    font-size: 30pt;
-    line-height: 30pt;
-    transition:
-        left      0.3s ease-out,
-        top       0.3s ease-out,
-        transform 0.3s ease-out,
-        font-size 0.15s ease-out,
-        line-height 0.15s ease-out;
+    left: 45.4px;
+    top: 18.3px;
+    transform: translate(0, 0);
+    font-size: 20pt;
+    line-height: 1;
 }
+
+#titleBackground {
+    position:fixed;
+    height:40pt;
+    font-size: 20pt;
+    line-height: 50pt;
+    padding: 0 24pt 7pt 12pt;
+    z-index: 2;
+    color: #f2eee8;
+    background-image: url('images/nav.svg');
+    background-size: 100% 100%; /* Stretch to fit both dimensions */
+    background-repeat: no-repeat;
+    background-position: center;
+    transform-origin: top left;
+    transform: translate(-200px, -40px) rotate(-100deg);
+    transition: transform 0.3s ease-out;
+    color: transparent;
+}
+#titleBackground[scrolled="yes"] {
+    transform: translate(0, -1pt) rotate(0deg);
+}
+#logo {
+    height: 24pt;
+    object-fit: contain;
+    transform: translate(0,5pt);
+}
+
+
 #container {
     display: block;
     margin-left: auto;
@@ -226,10 +249,10 @@ a {
     mask-image: url('images/image-clip4.svg');
 }
 
-.fade-in {
+/* .fade-in {
   opacity: 0;
   animation: fadeInAnim 2s ease 0.3s forwards;
-}
+} */
 
 @keyframes fadeInAnim {
   to { opacity: 1; }
