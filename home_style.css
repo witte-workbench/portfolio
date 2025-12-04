@@ -26,7 +26,7 @@ body {
     color: var(--main-text-color);
     background-color: var(--main-bg-color);
     font-size: 26pt;
-    line-height: 36pt;
+    line-height: 33pt;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 body::-webkit-scrollbar {
@@ -131,20 +131,31 @@ a {
   flex-wrap: wrap;   /* allows sticky notes to wrap onto new lines if screen is too narrow */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;         /* space between sticky notes */
+  margin-top: 30px;
 }
 
 .stickyDiv {
+  display: block;
   position: relative;
-  /* width: calc(30% - 20px);      adjust as needed */
   aspect-ratio: 86.302 / 72.24;
-  padding: 20px;
-  text-align: center;
   color: var(--main-bg-color);
   z-index: 1;
+}
+.stickyDiv span {
+  padding: 15px 20px 15px 10px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+.stickyDiv span div {
+  margin-bottom: 0.4rem;
+  flex: 0 0 auto;
 }
 
 .stickyDiv::before {
@@ -162,9 +173,13 @@ a {
   text-decoration: none;
 }
 
-.stickyDiv img {
-  height: 50%;
-  /* or use max-width: 100%; if you prefer */
+.stickyDiv span img {
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0;
+  max-height: 50%;
+  object-fit: contain;    /* use 'cover' if you want it to crop instead */
+  display: block;
 }
 .redSticky::before {
     filter: hue-rotate(0deg);
@@ -211,10 +226,10 @@ a {
     mask-image: url('images/image-clip4.svg');
 }
 
-/* .fade-in {
+.fade-in {
   opacity: 0;
   animation: fadeInAnim 2s ease 0.3s forwards;
-} */
+}
 
 @keyframes fadeInAnim {
   to { opacity: 1; }
