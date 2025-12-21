@@ -61,7 +61,7 @@ body::-webkit-scrollbar {
     transform: translate(0, 0);
     font-size: 20pt;
     line-height: 1;
-    color: white;
+    color: #f2eee8;
 }
 /* SAFARI ONLY */
 @supports (font: -apple-system-body) {
