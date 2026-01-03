@@ -7,3 +7,6 @@ for(let div of document.getElementsByClassName('stickyDiv')) {
         "red", "blue", "orange", "green", "purple"
     ].random() + "Sticky");
 }
+if (localStorage.getItem("font")=="accessible") {
+    document.body.classList.add("typewritten");
+}

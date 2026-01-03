@@ -20,8 +20,8 @@ document.getElementById("fullscreen").addEventListener("click",()=>{
 })
 
 function init() {
-    let typewritten = localStorage.getItem("font") == "typewritten";
-    if (typewritten) {
+    let typewritten = localStorage.getItem("font");
+    if (typewritten == "accessible" || typewritten == "typewritten") {
         document.body.classList.add("typewritten");
         document.getElementById("slider_dot").setAttribute("flipped","yes");
     }

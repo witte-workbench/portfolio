@@ -32,6 +32,28 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
+*:focus-visible {
+    border: 2px solid blue !important;
+    outline: 3px solid white !important;
+}
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    padding: 12px;
+    background: black;
+    color: white;
+    z-index: 10000;
+    border: none;
+
+    transform: translateY(-200%);
+    transition: transform 120ms ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 3px solid #fff;
+}
 #mainTitle {
     position: fixed;
     left: 50%;
@@ -340,4 +362,15 @@ a {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 20px;         /* space between sticky notes */
     }
+}
+
+.typewritten {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    line-height: 30px;
+    font-size: 16pt;
+}
+.typewritten-btn, .typewritten #mainTitle, .typewritten .large, .typewritten .stickyDiv, .typewritten .contact-link {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 600;
 }
