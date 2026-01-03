@@ -37,7 +37,7 @@
         </div>
         <div class="mainTitle">Make My Schedule</div>
         <div id="container">
-            <img src="../images/mms-screenshot2.png" class="graphic-image1 fill-width rect">
+            <img src="../images/mms-screenshot2.png" class="graphic-image1 fill-width rect sliding-img">
             Every student knows the most important part of school: Your schedule.
             <div class="spacer"></div>
             It determines when you wake up, what friends you make, and what professor covers your paper in red marks. Not to mention, many students have external factors like work hours.
@@ -49,12 +49,12 @@
             I started by learning how to make Chrome extensions. I then made a basic scraping script that pulls all the class course data from my school's registration page, then parses it into a data map. With this data, I ran code to generate every possible schedule including the user's desired classes.
             <div class="spacer"></div>
             <div class="large">And never stopped</div>
-            <div class="image-wrapper right-float"><img src="../images/old-mms.png" class="graphic-image2"></div>
+            <div class="image-wrapper right-float"><img src="../images/old-mms.png" class="graphic-image2 sliding-img"></div>
             This first version was slow. Hillariously slow, in fact. It had lots of redundancy and duplicate removal, which in an exponential algorithm is very potent. Generating 30,000 schedules took 16 minutes. The sorting algorithm and filter options were bare bones.
             <div class="spacer"></div>
             I'm sharing this because it's important to remember Rome wasn't buit in a day - Every project starts with a poorly-made proof of concept.
             <div class="spacer"></div>
-            <div class="image-wrapper left-float"><img src="../images/mms-screenshot.png" class="graphic-image3"></div>
+            <div class="image-wrapper left-float"><img src="../images/mms-screenshot.png" class="graphic-image3 sliding-img"></div>
             My latest version can generate the same 30,000 schedules in only 56 milliseconds (0.0009 minutes). That's a 17,000x improvement in this case. As another point of reference, my newest version can find 1,600,000 schedules in 2.6 seconds.
             <div class="spacer"></div>
             If you're interested, you can check it out at <a href="https://make-my-schedule.com/">make-my-schedule.com</a>
@@ -69,67 +69,6 @@
                 <p>X</p>
             </div>
         </template>
-        <script>
-            document.getElementById("fontSwitch").addEventListener("click",()=>{
-                if (document.getElementById("slider_dot").getAttribute("flipped") == "yes") {
-                    document.body.classList.remove("typewritten");
-                    document.getElementById("slider_dot").setAttribute("flipped","no");
-                    localStorage.setItem("font", "handwritten");
-                } else {
-                    document.body.classList.add("typewritten");
-                    document.getElementById("slider_dot").setAttribute("flipped","yes");
-                    localStorage.setItem("font", "typewritten");
-                }
-            });
-            document.getElementById("fullscreen").addEventListener("click",()=>{
-                if (document.fullscreenElement) {
-                    document.getElementById("fullscreen").src = "../images/fullscreen.svg";
-                    document.exitFullscreen();
-                } else {
-                    document.getElementById("fullscreen").src = "../images/exit_fullscreen.svg";
-                    document.documentElement.requestFullscreen();
-                }
-            })
-
-            function init() {
-                let typewritten = localStorage.getItem("font") == "typewritten";
-                if (typewritten) {
-                    document.body.classList.add("typewritten");
-                    document.getElementById("slider_dot").setAttribute("flipped","yes");
-                }
-            }
-            init();
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > window.innerHeight * 0.15) {
-                    document.getElementById("fontSwitch").setAttribute("scrolled", "yes");
-                    document.getElementById("fullscreen").setAttribute("scrolled", "yes");
-                } else {
-                    document.getElementById("fontSwitch").setAttribute("scrolled", "no");
-                    document.getElementById("fullscreen").setAttribute("scrolled", "no");
-                }
-            });
-
-            document.getElementById("container").querySelectorAll("img").forEach(el => {
-                el.addEventListener("click",e => {
-                    const template = document.getElementById("image-fullscreen-template");
-                    const clone = template.content.cloneNode(true);
-                    clone.querySelector("img").src = el.src;
-                    clone.querySelector("p").addEventListener("click", ()=>{
-                        const fullscreen = document.getElementById("image-fullscreen");
-                        document.body.removeChild(fullscreen);
-                    });
-
-                    document.body.appendChild(clone);
-                })
-            })
-            window.addEventListener('keyup', (e) => {
-                if (e.key=="Escape") {
-                    const fullscreen = document.getElementById("image-fullscreen");
-                    if (fullscreen)
-                        document.body.removeChild(fullscreen);
-                }
-            });
-        </script>
+        <script src="projects.js"></script>
     </body>
 </html>
