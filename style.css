@@ -3,17 +3,22 @@
     src: url("fonts/Handwriting2.otf") format("opentype");
 }
 :root {
-    --main-bg-color: #e7dfd4;
     --main-mid-color: #463c2d;
-    --main-text-color: #111;
+    --main-bg-color: #dad1c6;
+    --main-text-color: #1d1710;
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --main-bg-color: #2c261f;
         --main-text-color: #f2eee8;
+        --main-bg-color: #251d15;
     }
     .svgInvert {
         filter: invert();
+    }
+
+    .textured {
+        background-image: url('images/paper-texture-dark.jpg') !important;
+        background-blend-mode:screen !important;
     }
 }
 body {
@@ -126,7 +131,7 @@ body::-webkit-scrollbar {
     line-height: 50pt;
     padding: 0 24pt 6pt 12pt;
     z-index: 2;
-    color: #f2eee8;
+    color: #dad1c6;
     background-image: url('images/nav.svg');
     background-size: 100% 100%; /* Stretch to fit both dimensions */
     background-repeat: no-repeat;
@@ -242,7 +247,7 @@ a {
     display: block;
     text-align: center;
     width: 100%;
-    color: white;
+    color: #dad1c6;
     font-weight: bold;
     padding: 14px;
     text-decoration: none;
@@ -378,4 +383,11 @@ a {
 .sliding-img.loaded {
     transform: translateX(0);
     transition: transform 600ms cubic-bezier(.85,1.35,.7,.95);
+}
+
+.textured {
+    background-image: url('images/paper-texture.jpg');
+    background-blend-mode:multiply;
+    background-size: auto; /* use natural size so it tiles cleanly */
+    background-repeat: repeat;
 }

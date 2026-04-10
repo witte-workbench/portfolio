@@ -16,7 +16,7 @@
         gtag('config', 'G-64L9BKKPF7');
         </script>
     </head>
-    <body class="fade-in">
+    <body class="fade-in textured">
         <button class="skip-link" onclick='localStorage.setItem("font", "accessible");document.body.classList.add("typewritten");'>Use regular font</button>
         <div id="mainTitle" scrolled="no">Witte's Workbench</div>
         <div id="titleBackground">
@@ -131,6 +131,12 @@
                     document.getElementById("mainTitle").setAttribute("scrolled","no");
                     document.getElementById("titleBackground").setAttribute("scrolled","no");
                 }
+            });
+
+            document.querySelectorAll(".stickyDiv").forEach(e => {
+                let rand = Math.ceil(Math.random()*3);
+                e.style.setProperty('--mask', 'url("images/sticky_note' + rand + '.svg")');
+                e.style.transform = `translate(${Math.round((Math.random()-0.5)*10)}px, ${Math.round((Math.random()-0.5)*10)}px)`;
             });
         </script>
         <script src="style.js"></script>
