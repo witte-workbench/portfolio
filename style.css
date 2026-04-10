@@ -73,7 +73,7 @@ body::-webkit-scrollbar {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100vw;        /* Will take up full viewport width by default */
+    width: 100vw;
     max-width: 670px;
     box-sizing: border-box;
     padding: 0 35px;
@@ -82,7 +82,6 @@ body::-webkit-scrollbar {
 }
 #paper {
     width: 100%;
-    /* filter: invert(); */
 }
 .onpage {
     position: absolute;
@@ -133,7 +132,7 @@ body::-webkit-scrollbar {
     z-index: 2;
     color: #dad1c6;
     background-image: url('images/nav.svg');
-    background-size: 100% 100%; /* Stretch to fit both dimensions */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -152,8 +151,8 @@ body::-webkit-scrollbar {
 a {
     color: #66c2ff;
     text-decoration: wavy underline;
-    text-decoration-thickness: 2px; /* Adjust the thickness as desired */
-    text-underline-offset: 3px;     /* Optional: adjusts the gap between text and underline */
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
 }
 
 
@@ -197,23 +196,23 @@ a {
   }
     .hero {
         width: 160%;
-        margin-left: -30%;     /* Space between image and text */
+        margin-left: -30%;
     }
   .image-wrapper.right-float {
     float: right;
-    margin-right: -270px;  /* Push image into right margin */
-    margin-left: 24px;     /* Space between image and text */
+    margin-right: -270px;
+    margin-left: 24px;
     clear: right;
   }
   .image-wrapper.left-float {
     float: left;
-    margin-left: -270px;   /* Push image into left margin */
-    margin-right: 24px;    /* Space between image and text */
+    margin-left: -270px;
+    margin-right: 24px;
     clear: left;
   }
 }
 
-/* Mobile: Inline, Centered Images */
+/* mobile inline images */
 @media (max-width: 1139px) {
   .image-wrapper,
   .image-wrapper.right-float,
@@ -252,7 +251,7 @@ a {
     padding: 14px;
     text-decoration: none;
     background-image: url('images/button.svg');
-    background-size: 100% 100%; /* Stretch to fit both dimensions */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     border:none;
@@ -296,13 +295,13 @@ a {
     right: 5pt;
     cursor: pointer;
 
-    display: inline-flex;       /* flex container */
-    align-items: center;        /* vertical centering */
-    gap: 0.2em;                 /* tweak spacing here if needed */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
 
-    font-size: 20pt;            /* base size */
-    line-height: 1;             /* makes 1em = font-size */
-    height: auto;               /* let content drive height */
+    font-size: 20pt;
+    line-height: 1;
+    height: auto;
     background-color: var(--main-bg-color);
     transition: transform 0.5s ease-out;
     padding: 5pt;
@@ -315,7 +314,7 @@ a {
 #fontSwitch img {
   height: 1em;
   width: auto;
-  display: block;             /* avoids inline-spacing quirks */
+  display: block;
 }
 .handwritten, .handwritten-btn {
     font-family: Handwriting;
@@ -341,21 +340,21 @@ a {
     font-size: 18pt;
 }
 .handwritten, .typewritten {
-    display: block;             /* so they behave exactly like the images */
+    display: block;
 }
 #slider_container {
-    position: relative;     /* establish a positioning context */
+    position: relative;
 }
 
 #slider_dot {
-    position: absolute;     /* now lives “on top” of the container */
-    top: 50%;               /* vertically center within the track */
-    left: 0;                /* start at the left edge */
+    position: absolute;
+    top: 50%;
+    left: 0;
     transition: left 0.3s ease;
-    transform: translateY(-50%); /* offset so its center sits on the edge */
+    transform: translateY(-50%);
 }
 #slider_dot[flipped="yes"] {
-    left: 50%;                /* start at the left edge */
+    left: 50%;
 }
 
 
@@ -388,6 +387,6 @@ a {
 .textured {
     background-image: url('images/paper-texture.jpg');
     background-blend-mode:multiply;
-    background-size: auto; /* use natural size so it tiles cleanly */
+    background-size: auto;
     background-repeat: repeat;
 }

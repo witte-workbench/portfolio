@@ -430,6 +430,6 @@ a {
 .textured {
     background-image: url('images/paper-texture.jpg');
     background-blend-mode:multiply;
-    background-size: auto; /* use natural size so it tiles cleanly */
+    background-size: auto;
     background-repeat: repeat;
 }

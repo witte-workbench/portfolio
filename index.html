@@ -132,12 +132,6 @@
                     document.getElementById("titleBackground").setAttribute("scrolled","no");
                 }
             });
-
-            document.querySelectorAll(".stickyDiv").forEach(e => {
-                let rand = Math.ceil(Math.random()*3);
-                e.style.setProperty('--mask', 'url("images/sticky_note' + rand + '.svg")');
-                e.style.transform = `translate(${Math.round((Math.random()-0.5)*10)}px, ${Math.round((Math.random()-0.5)*10)}px)`;
-            });
         </script>
         <script src="style.js"></script>
     </body>
